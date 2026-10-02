@@ -1,0 +1,709 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #141414;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.home-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 45px;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    z-index: 1000;
+}
+
+.brand img {
+    width: 95px;
+    height: auto;
+}
+
+.navigation {
+    display: flex;
+    gap: 28px;
+
+    margin-left: 45px;
+}
+
+.navigation a {
+    color: #ddd;
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: color 0.25s ease;
+}
+
+.navigation a:hover {
+    color: #fff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 7% 80px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.65) 38%,
+            rgba(0, 0, 0, 0.15) 75%,
+            rgba(0, 0, 0, 0.8) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #141414 0%,
+            transparent 35%
+        ),
+        url("../assets/images/papa1.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 600px;
+
+    padding-top: 40px;
+}
+
+.hero-label {
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 18px;
+
+    color: #ddd;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 6vw, 85px);
+
+    line-height: 0.95;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+.hero-meta {
+    color: #ddd;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: #ddd;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    max-width: 500px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.hero-buttons button {
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 4px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.play-button {
+    background: #fff;
+    color: #000;
+}
+
+.info-button {
+    background: rgba(80, 80, 80, 0.8);
+    color: #fff;
+}
+
+.hero-buttons button:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    padding: 30px 5% 80px;
+}
+
+.content h2 {
+    font-size: 24px;
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   MOVIE ROW
+========================= */
+
+.movie-row {
+    display: flex;
+
+    gap: 16px;
+
+    overflow-x: auto;
+
+    padding: 10px 0 30px;
+
+    scrollbar-width: none;
+}
+
+.movie-row::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================
+   MOVIE CARD
+========================= */
+
+.movie-card {
+    position: relative;
+
+    flex: 0 0 240px;
+
+    height: 330px;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    background: #222;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.07);
+
+    z-index: 5;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   CARD GRADIENT
+========================= */
+
+.movie-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 45%,
+            rgba(0, 0, 0, 0.9) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CARD INFO
+========================= */
+
+.movie-card-info {
+    position: absolute;
+
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+
+    z-index: 2;
+}
+
+.movie-card-info h3 {
+    font-size: 20px;
+
+    margin-bottom: 6px;
+}
+
+.movie-card-info p {
+    font-size: 12px;
+
+    color: #ccc;
+}
+
+
+/* =========================
+   PLACEHOLDER CARDS
+========================= */
+
+.placeholder {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #555;
+
+    font-size: 14px;
+
+    border: 1px solid #292929;
+}
+
+
+/* =========================
+   MOVIE DETAILS
+========================= */
+
+#movie-details {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    overflow: hidden;
+
+    background: #141414;
+}
+
+
+/* =========================
+   DETAILS PHOTO
+========================= */
+
+.details-image {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 42%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #000;
+}
+
+
+/* LEFT SIDE DARK AREA */
+
+.details-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            #141414 0%,
+            #141414 42%,
+            rgba(20, 20, 20, 0.55) 58%,
+            rgba(20, 20, 20, 0.05) 100%
+        );
+    pointer-events: none;
+}
+
+
+/* =========================
+   DETAILS CONTENT
+========================= */
+
+.details-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 52%;
+
+    height: 100%;
+
+    padding-left: 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details-label {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #aaa;
+
+    margin-bottom: 18px;
+}
+
+.details-content h1 {
+    font-size: clamp(45px, 6vw, 75px);
+
+    margin-bottom: 15px;
+}
+
+.details-meta {
+    color: #ccc;
+
+    margin-bottom: 22px;
+}
+
+.details-description {
+    max-width: 450px;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #ddd;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+.details-play {
+    border: none;
+
+    background: #fff;
+    color: #000;
+
+    padding: 13px 27px;
+
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.details-play:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-button,
+.fullscreen-close {
+    position: absolute;
+
+    top: 30px;
+    right: 40px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(40, 40, 40, 0.8);
+
+    color: #fff;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.close-button:hover,
+.fullscreen-close:hover {
+    background: #333;
+}
+
+
+/* =========================
+   FULLSCREEN VIEW
+========================= */
+
+#fullscreen-view {
+    position: fixed;
+    inset: 0;
+
+    z-index: 3000;
+
+    display: none;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+#fullscreen-view > img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #000;
+}
+
+.fullscreen-info {
+    position: absolute;
+
+    left: 7%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    max-width: 450px;
+
+    z-index: 2;
+}
+
+.fullscreen-info h1 {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+.fullscreen-info p {
+    color: #ddd;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .home-header {
+        padding: 0 20px;
+    }
+
+    .navigation {
+        gap: 15px;
+        margin-left: 20px;
+    }
+
+    .navigation a {
+        font-size: 13px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 75vh;
+        padding: 110px 25px 60px;
+        background-position: 65% center;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+
+    /* MOVIE CARDS */
+
+    .movie-card {
+        flex-basis: 180px;
+        height: 250px;
+    }
+
+
+    /* =========================
+       MOVIE DETAILS - MOBILE
+    ========================= */
+
+    #movie-details {
+        overflow-y: auto;
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .details-image {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+        height: 58vh;
+
+        flex-shrink: 0;
+
+        object-fit: contain;
+
+        background: #000;
+    }
+
+    .details-overlay {
+        display: none;
+    }
+
+    .details-content {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        min-height: 42vh;
+
+        padding: 35px 25px 50px;
+
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .details-label {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .details-content h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    .details-meta {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .details-description {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+
+    /* CLOSE BUTTON */
+
+    .close-button {
+        top: 18px;
+        right: 18px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 27px;
+    }
+
+
+    /* =========================
+       FULLSCREEN - MOBILE
+    ========================= */
+
+    #fullscreen-view > img {
+        object-fit: contain;
+    }
+
+    .fullscreen-info {
+        left: 25px;
+        right: 25px;
+
+        top: auto;
+        bottom: 40px;
+
+        transform: none;
+    }
+
+    .fullscreen-info h1 {
+        font-size: 40px;
+    }
+
+}
